@@ -1,0 +1,50 @@
+<div>
+	<form (submit)="addMovieAndReview($event)" #form="ngForm" >
+  	<ul>
+  		<li id="red"><small *ngIf="!form.valid && form.touched">All fields are required.</small></li>
+  		<li id="red"><small *ngIf="!title.valid && title.touched">Name needs 3 characters.</small></li>
+	  	<li><label>Movie title:</label>
+	  	<input
+	  		name="newMovie.title"
+	  		type="text"
+	  		required
+	  		minlength="3"
+	  		[(ngModel)]="newMovie.title"
+	  		#title="ngModel"
+	  	></li>
+	  	<li><small id="red" *ngIf="!username.valid">Name is required.</small></li>
+	  	<li><label>Your name:</label>
+	  	<input
+	  		name="newReview.name"
+	  		type="text"
+	  		required
+	  		minlength="3"
+	  		[(ngModel)]="newReview.name"
+	  		#username="ngModel"
+	  	></li>
+	  	<li><small id="red" *ngIf="!stars.valid">Stars is required.</small></li>
+	  	<li><label>Stars:</label>
+	  	<select
+	  		name="newReview.stars"
+	  		type="number"
+	  		[(ngModel)]="newReview.stars"
+	  		required
+	  		#stars="ngModel"
+	  	>
+	  		<option [value]="1">1</option>
+	  		<option [value]="2">2</option>
+	  		<option [value]="3">3</option>
+	  		<option [value]="4">4</option>
+	  		<option [value]="5">5</option>
+	  	</select></li>
+	  	<li><small id="red" *ngIf="!review.valid">Review is required.</small></li>
+	  	<li><textarea
+	  			name="newReview.review"
+	  			required
+	  			minlength="3"
+	  			[(ngModel)]="newReview.review"
+	  			#review="ngModel"
+	  		></textarea></li>
+	  	<li><input type="submit" value="add movie and review" [disabled]="!form.valid"></li>
+	  </ul>
+  </form>

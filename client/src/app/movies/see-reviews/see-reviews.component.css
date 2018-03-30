@@ -1,0 +1,16 @@
+*{
+	font-family: arial;
+	font-size: 20pt;
+}
+#red{
+	color: red;
+}
+table td{
+	border: 1px solid black;
+}
+table th{
+	border: 1px solid black;
+}
+table{
+	padding: 5px;
+}

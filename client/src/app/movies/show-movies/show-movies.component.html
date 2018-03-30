@@ -1,0 +1,16 @@
+
+<div>
+	<h3>Movie List</h3>
+	<button [routerLink]="['/movies/new']">Add a new movie</button>
+	<table>
+		<tr>
+			<th>Movie Title</th>
+			<th>Available Action</th>
+			<th>Average review score</th>
+		</tr>
+		<tr *ngFor="let movie of all_movies">
+			<td>{{movie.title}}</td>
+			<td><button [routerLink]="['/movie/'+ movie._id]" >Read Reviews</button><button [routerLink]="['/movies/review/'+ movie._id]" >Write Review</button></td>
+			<td>*place Average score here*</td>
+		</tr>
+	</table>

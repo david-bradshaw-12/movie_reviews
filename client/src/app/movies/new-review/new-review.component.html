@@ -1,0 +1,48 @@
+<button [routerLink]="['/movies']">See all Movies</button>
+
+
+<div>
+	<h2>Review for {{currentMovie.title}}</h2>
+	<h5 id="red">{{error}}</h5>
+	<form (submit)="addReview($event)" #form="ngForm">
+  	<ul>
+  		<li id="red"><small *ngIf="!form.valid && form.touched">All fields are required.</small></li>
+	  	<li><small id="red" *ngIf="!username.valid">Name is required.</small></li>
+	  	<li><label>Your name:</label>
+	  	<input
+	  		name="currentReview.name"
+	  		type="text"
+	  		required
+	  		minlength="3"
+	  		[(ngModel)]="currentReview.name"
+	  		#username="ngModel"
+	  	></li>
+	  	<li><small id="red" *ngIf="!stars.valid">Stars is required.</small></li>
+	  	<li><label>Stars:</label>
+	  	<select
+	  		name="currentReview.stars"
+	  		type="number"
+	  		[(ngModel)]="currentReview.stars"
+	  		required
+	  		#stars="ngModel"
+	  	>
+	  		<option [value]="1">1</option>
+	  		<option [value]="2">2</option>
+	  		<option [value]="3">3</option>
+	  		<option [value]="4">4</option>
+	  		<option [value]="5">5</option>
+	  	</select>
+	  	</li>
+	  	<li><small id="red" *ngIf="!review.valid">Review is required.</small></li>
+	  	<li><textarea
+	  			name="currentReview.review"
+	  			required
+	  			minlength="3"
+	  			[(ngModel)]="currentReview.review"
+	  			#review="ngModel"
+	  		></textarea></li>
+	  	<li><input type="submit" value="review" [disabled]="!form.valid"></li>
+	  </ul>
+  </form>
+	
+</div>
